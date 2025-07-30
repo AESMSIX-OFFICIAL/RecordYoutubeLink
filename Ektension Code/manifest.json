@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube Logger V6.4",
+  "version": "6.4",
+  "description": "Recording YouTube links to local storage",
+  "permissions": [
+    "tabs",
+    "storage",
+    "downloads"
+  ],
+  "background": {
+    "scripts": ["config.js", "starter.js"]
+  },
+  "content_scripts": [
+   {
+     "matches": ["*://www.youtube.com/watch?v=*"],
+     "js": ["wait.js"],
+     "run_at": "document_idle"
+   }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Logger V6.4"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    "edit.html"
+  ]
+}
